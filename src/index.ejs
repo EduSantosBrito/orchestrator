@@ -29,6 +29,17 @@
 
     More information about shared dependencies can be found at https://single-spa.js.org/docs/recommended-setup#sharing-with-import-maps.
   -->
+  <% if (isLocal) { %>
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+        "react": "https://unpkg.com/react@17/umd/react.development.js",
+        "react-dom": "https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      }
+    }
+  </script>
+  <% } else { %>
   <script type="systemjs-importmap">
     {
       "imports": {
@@ -38,6 +49,7 @@
       }
     }
   </script>
+  <% } %>
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
 
   <!-- Add your organization's prod import map URL to this script's src  -->
@@ -48,7 +60,8 @@
     {
       "imports": {
         "@brito/root-config": "//localhost:3000/brito-root-config.js",
-        "@brito/header": "//localhost:9000/brito-header.js"
+        "@brito/header": "//localhost:9000/brito-header.js",
+        "@brito/routes": "//localhost:9001/brito-routes.js"
       }
     }
   </script>
