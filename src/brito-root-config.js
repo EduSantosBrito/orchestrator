@@ -4,10 +4,10 @@ import { registerApplication, start } from "single-spa";
 //   return (location) => routes.some((route) => location.pathname === route);
 // }
 
-// function showWhenPrefix(routes) {
-//   return (location) =>
-//     routes.some((route) => location.pathname.startsWith(route));
-// }
+function showWhenPrefix(routes) {
+  return (location) =>
+    routes.some((route) => location.pathname.startsWith(route));
+}
 
 function showExcept(routes) {
   return (location) => routes.every((route) => location.pathname !== route);
@@ -27,6 +27,12 @@ registerApplication({
   name: "@brito/login",
   app: () => System.import("@brito/login"),
   activeWhen: showOnly(["/login"]),
+});
+
+registerApplication({
+  name: "@brito/protected",
+  app: () => System.import("@brito/protected"),
+  activeWhen: showWhenPrefix(["/protected"]),
 });
 
 start({

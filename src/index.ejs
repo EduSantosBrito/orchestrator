@@ -35,7 +35,8 @@
       "imports": {
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
         "react": "https://unpkg.com/react@17/umd/react.development.js",
-        "react-dom": "https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+        "react-dom": "https://unpkg.com/react-dom@17/umd/react-dom.development.js",
+        "react-router-dom": "https://unpkg.com/react-router-dom@5.2.0/umd/react-router-dom.min.js"
       }
     }
   </script>
@@ -45,7 +46,8 @@
       "imports": {
         "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
         "react": "https://unpkg.com/react@17/umd/react.production.min.js",
-        "react-dom": "https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"
+        "react-dom": "https://unpkg.com/react-dom@17/umd/react-dom.production.min.js",
+        "react-router-dom": "https://unpkg.com/react-router-dom@5.2.0/umd/react-router-dom.min.js"
       }
     }
   </script>
@@ -63,7 +65,21 @@
         "@brito/header": "//localhost:9000/brito-header.js",
         "@brito/routes": "//localhost:9001/brito-routes.js",
         "@brito/auth": "//localhost:9002/brito-auth.js",
-        "@brito/login": "//localhost:9003/brito-login.js"
+        "@brito/login": "//localhost:9003/brito-login.js",
+        "@brito/protected": "//localhost:9004/brito-protected.js"
+      }
+    }
+  </script>
+  <% } else { %>
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "@brito/root-config": "https://brito-test.nyc3.digitaloceanspaces.com/orchestrator/brito-root-config.js",
+        "@brito/header": "https://brito-test.nyc3.digitaloceanspaces.com/header/brito-header.js",
+        "@brito/routes": "https://brito-test.nyc3.digitaloceanspaces.com/routes/brito-routes.js",
+        "@brito/auth": "https://brito-test.nyc3.digitaloceanspaces.com/auth/brito-auth.js",
+        "@brito/login": "https://brito-test.nyc3.digitaloceanspaces.com/login/brito-login.js",
+        "@brito/protected": "https://brito-test.nyc3.digitaloceanspaces.com/protected/brito-protected.js"
       }
     }
   </script>
